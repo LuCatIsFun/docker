@@ -1,0 +1,9 @@
+#创建jenkins宿主机挂载目录
+mkdir /export/server/jenkins
+#启动
+docker run -p 8080:8080 \
+           -p 50000:50000 \
+           -d 
+           --name jenkins \
+           -v /export/server/jenkins:/var/jenkins_home \
+           reg.ehking.com/public/jenkins #hub.c.163.com/library/jenkins:latest(网易云docker加速)
