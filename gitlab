@@ -1,0 +1,13 @@
+#创建宿主机映射目录
+
+docker run --detach \
+           --hostname 172.19.25.20  \
+           --publish 443:443 \
+           --publish 80:80 \
+           --publish 23:22  \
+           --name gitlab  \
+           --restart always  \
+           --volume /export/server/gitlab/config:/etc/gitlab  \
+           --volume /export/server/gitlab/logs:/var/log/gitlab \
+           --volume /export/server/gitlab/data:/var/opt/gitlab \
+           reg.ehking.com/public/gitlab  #registry.cn-hangzhou.aliyuncs.com/lab99/gitlab-ce-zh(社区汉化版)
